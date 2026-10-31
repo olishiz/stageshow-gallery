@@ -122,11 +122,11 @@ export default function CommandMenu() {
   return (
     <div
       ref={ref}
-      className="relative h-full w-full overflow-hidden bg-zinc-200/70 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100"
+      className="@container relative h-full w-full overflow-hidden bg-zinc-200/70 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100"
     >
       {/* The app underneath: quiet filler */}
-      <div className="absolute top-10 right-10 -bottom-12 left-10 flex overflow-hidden rounded-2xl bg-white shadow-[0_30px_60px_-24px_rgba(0,0,0,.35)] ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
-        <aside className="w-48 flex-none space-y-3 border-r border-black/5 bg-zinc-50 p-5 dark:border-white/10 dark:bg-zinc-900">
+      <div className="absolute top-10 right-10 -bottom-12 left-10 flex overflow-hidden @max-[480px]:inset-x-3 @max-[480px]:top-3 rounded-2xl bg-white shadow-[0_30px_60px_-24px_rgba(0,0,0,.35)] ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
+        <aside className="w-48 flex-none @max-[480px]:hidden space-y-3 border-r border-black/5 bg-zinc-50 p-5 dark:border-white/10 dark:bg-zinc-900">
           {[60, 72, 48, 66, 54].map((w, i) => (
             <div key={i} className="flex items-center gap-2.5">
               <span className="size-3.5 rounded bg-zinc-200 dark:bg-zinc-700" />
@@ -134,7 +134,7 @@ export default function CommandMenu() {
             </div>
           ))}
         </aside>
-        <div className="flex-1 space-y-4 p-7">
+        <div className="flex-1 space-y-4 p-7 @max-[480px]:p-5">
           <span className="block h-2.5 w-40 rounded-full bg-zinc-200 dark:bg-zinc-700" />
           {[80, 64, 72, 58, 76, 50].map((w, i) => (
             <div key={i} className="flex items-center gap-3 border-b border-black/[.04] pb-4 dark:border-white/5">
@@ -147,7 +147,7 @@ export default function CommandMenu() {
 
       {/* Palette, pinned by its top edge */}
       <div
-        className={`absolute top-[72px] left-1/2 w-[460px] -translate-x-1/2 origin-top rounded-2xl bg-white/95 shadow-[0_0_0_1px_rgba(0,0,0,.06),0_24px_64px_-12px_rgba(0,0,0,.35)] backdrop-blur transition-[opacity,scale] dark:bg-zinc-800/95 dark:shadow-[0_0_0_1px_rgba(255,255,255,.08),0_24px_64px_-12px_rgba(0,0,0,.7)] ${
+        className={`absolute top-[72px] left-1/2 w-[460px] @max-[480px]:top-8 @max-[480px]:w-[calc(100%-32px)] -translate-x-1/2 origin-top rounded-2xl bg-white/95 shadow-[0_0_0_1px_rgba(0,0,0,.06),0_24px_64px_-12px_rgba(0,0,0,.35)] backdrop-blur transition-[opacity,scale] dark:bg-zinc-800/95 dark:shadow-[0_0_0_1px_rgba(255,255,255,.08),0_24px_64px_-12px_rgba(0,0,0,.7)] ${
           open ? "scale-100 opacity-100 duration-200 ease-out" : "scale-[.97] opacity-0 duration-150 ease-in"
         }`}
       >
@@ -187,7 +187,7 @@ export default function CommandMenu() {
 
       {/* Toast */}
       <div
-        className={`absolute right-16 bottom-10 flex w-[300px] items-start gap-3 rounded-xl bg-zinc-900 p-4 text-white shadow-[0_16px_40px_-12px_rgba(0,0,0,.45)] transition-[opacity,translate] ease-[cubic-bezier(.25,.8,.25,1)] dark:bg-zinc-100 dark:text-zinc-900 ${
+        className={`absolute right-16 bottom-10 flex w-[300px] @max-[480px]:inset-x-4 @max-[480px]:bottom-4 @max-[480px]:w-auto items-start gap-3 rounded-xl bg-zinc-900 p-4 text-white shadow-[0_16px_40px_-12px_rgba(0,0,0,.45)] transition-[opacity,translate] ease-[cubic-bezier(.25,.8,.25,1)] dark:bg-zinc-100 dark:text-zinc-900 ${
           toast ? "translate-y-0 opacity-100 duration-500" : "translate-y-2 opacity-0 duration-300"
         }`}
       >
@@ -202,7 +202,7 @@ export default function CommandMenu() {
 
       {/* Keys being pressed */}
       <div
-        className={`absolute bottom-10 left-16 flex gap-1.5 transition-opacity duration-200 ${keysShown ? "opacity-100" : "opacity-0"}`}
+        className={`absolute bottom-10 left-16 @max-[480px]:bottom-4 @max-[480px]:left-4 flex gap-1.5 transition-opacity duration-200 ${keysShown ? "opacity-100" : "opacity-0"}`}
         aria-hidden
       >
         {keys === "enter" ? (

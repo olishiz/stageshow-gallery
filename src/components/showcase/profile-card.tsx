@@ -7,10 +7,10 @@ export default function ProfileCard() {
   const [following, setFollowing] = useState(false);
 
   return (
-    <div className="grid h-full w-full place-items-center bg-[radial-gradient(90%_80%_at_50%_0%,#e0f2fe,#f4f4f5_70%)] p-6 text-zinc-900 dark:bg-[radial-gradient(90%_80%_at_50%_0%,#0c2235,#09090b_70%)] dark:text-zinc-100">
-      <article className="w-full max-w-[440px] rounded-3xl bg-white p-6 shadow-[0_1px_2px_rgba(0,0,0,.05),0_24px_48px_-20px_rgba(2,6,23,.3)] ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
-        <div className="flex items-center gap-4">
-          <span className="grid size-14 flex-none place-items-center rounded-full bg-zinc-900 text-lg font-semibold text-white dark:bg-zinc-100 dark:text-zinc-900">
+    <div className="@container grid h-full w-full place-items-center bg-[radial-gradient(90%_80%_at_50%_0%,#e0f2fe,#f4f4f5_70%)] p-6 @max-[480px]:p-3 text-zinc-900 dark:bg-[radial-gradient(90%_80%_at_50%_0%,#0c2235,#09090b_70%)] dark:text-zinc-100">
+      <article className="w-full max-w-[440px] rounded-3xl bg-white p-6 @max-[480px]:p-5 shadow-[0_1px_2px_rgba(0,0,0,.05),0_24px_48px_-20px_rgba(2,6,23,.3)] ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
+        <div className="flex items-center gap-4 @max-[480px]:gap-3">
+          <span className="grid size-14 flex-none place-items-center rounded-full bg-zinc-900 @max-[480px]:size-12 text-lg font-semibold text-white dark:bg-zinc-100 dark:text-zinc-900">
             OS
           </span>
           <div className="min-w-0 flex-1">
@@ -29,7 +29,7 @@ export default function ProfileCard() {
             type="button"
             aria-pressed={following}
             onClick={() => setFollowing((v) => !v)}
-            className={`grid h-9 flex-none items-center rounded-full px-4 text-[14px] font-medium transition-colors duration-200 outline-offset-2 focus-visible:outline-2 focus-visible:outline-sky-500 ${
+            className={`grid h-9 flex-none items-center rounded-full px-4 @max-[480px]:px-3.5 text-[14px] font-medium transition-colors duration-200 outline-offset-2 focus-visible:outline-2 focus-visible:outline-sky-500 ${
               following
                 ? "bg-zinc-100 text-zinc-900 ring-1 ring-black/10 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-100 dark:ring-white/10 dark:hover:bg-zinc-700"
                 : "bg-sky-600 text-white hover:bg-sky-700"

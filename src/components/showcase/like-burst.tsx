@@ -35,14 +35,14 @@ export default function LikeBurst() {
   };
 
   return (
-    <div className="grid h-full w-full place-items-center bg-rose-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
-      <div className="flex items-center gap-5 rounded-full bg-white py-3.5 pr-9 pl-3.5 shadow-[0_1px_2px_rgba(0,0,0,.05),0_16px_40px_-16px_rgba(190,18,60,.25)] ring-1 ring-black/5 dark:bg-zinc-900 dark:shadow-none dark:ring-white/10">
+    <div className="@container grid h-full w-full place-items-center bg-rose-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
+      <div className="flex items-center gap-5 rounded-full bg-white py-3.5 pr-9 pl-3.5 @max-[480px]:gap-4 @max-[480px]:pr-7 @max-[480px]:pl-3 shadow-[0_1px_2px_rgba(0,0,0,.05),0_16px_40px_-16px_rgba(190,18,60,.25)] ring-1 ring-black/5 dark:bg-zinc-900 dark:shadow-none dark:ring-white/10">
         <button
           type="button"
           aria-pressed={liked}
           aria-label={liked ? "Unlike" : "Like"}
           onClick={toggle}
-          className="relative grid size-20 place-items-center rounded-full outline-offset-2 transition-colors duration-200 hover:bg-rose-50 focus-visible:outline-2 focus-visible:outline-rose-500 dark:hover:bg-rose-500/10"
+          className="relative grid size-20 place-items-center rounded-full @max-[480px]:size-16 outline-offset-2 transition-colors duration-200 hover:bg-rose-50 focus-visible:outline-2 focus-visible:outline-rose-500 dark:hover:bg-rose-500/10"
         >
           {liked && (
             <span key={bursts} className="pointer-events-none absolute inset-0 motion-reduce:hidden" aria-hidden>
@@ -60,7 +60,7 @@ export default function LikeBurst() {
             </span>
           )}
           <Heart
-            className={`size-10 transition-colors duration-200 ${
+            className={`size-10 @max-[480px]:size-8 transition-colors duration-200 ${
               liked ? "like-pop fill-rose-500 text-rose-500" : "fill-transparent text-zinc-400 dark:text-zinc-500"
             }`}
             strokeWidth={2}
@@ -68,7 +68,7 @@ export default function LikeBurst() {
           />
         </button>
         <div>
-          <div className="flex text-[36px]/none font-semibold tracking-tight tabular-nums" aria-hidden>
+          <div className="flex text-[36px]/none font-semibold @max-[480px]:text-[32px]/none tracking-tight tabular-nums" aria-hidden>
             {text.split("").map((ch, i) =>
               /\d/.test(ch) ? <Digit key={i} value={Number(ch)} /> : <span key={i}>{ch}</span>,
             )}

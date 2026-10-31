@@ -53,7 +53,7 @@ export default function SlidingTabs() {
   };
 
   return (
-    <div className="grid h-full w-full place-items-center bg-zinc-100 p-6 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
+    <div className="@container grid h-full w-full place-items-center bg-zinc-100 p-6 @max-[480px]:p-4 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
       <div className="w-full max-w-[440px]">
         <div
           role="tablist"

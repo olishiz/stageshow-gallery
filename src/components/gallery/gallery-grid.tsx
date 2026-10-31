@@ -92,7 +92,13 @@ export function GalleryGrid() {
                 aria-hidden
                 className="overflow-hidden rounded-2xl border border-border/70 bg-muted shadow-[0_1px_2px_rgba(0,0,0,.04)] transition-[box-shadow,translate] duration-300 ease-out group-hover:-translate-y-0.5 group-hover:shadow-[0_18px_40px_-20px_rgba(0,0,0,.35)] motion-reduce:transition-none motion-reduce:group-hover:translate-y-0"
               >
-                <ScaledStage width={s.width} height={s.height}>
+                <ScaledStage
+                  width={s.width}
+                  height={s.height}
+                  compact={s.compact}
+                  switchOn="viewport"
+                  reflowWhenCompact={s.fluid}
+                >
                   <Component />
                 </ScaledStage>
               </div>

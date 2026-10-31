@@ -112,10 +112,10 @@ export default function PayoutFlow() {
   return (
     <div
       ref={ref}
-      className="relative h-full w-full overflow-hidden bg-[radial-gradient(120%_90%_at_0%_0%,#eef2ff_0%,#f4f4f5_55%)] text-zinc-900 dark:bg-[radial-gradient(120%_90%_at_0%_0%,#172036_0%,#09090b_60%)] dark:text-zinc-100"
+      className="@container relative h-full w-full overflow-hidden bg-[radial-gradient(120%_90%_at_0%_0%,#eef2ff_0%,#f4f4f5_55%)] text-zinc-900 dark:bg-[radial-gradient(120%_90%_at_0%_0%,#172036_0%,#09090b_60%)] dark:text-zinc-100"
     >
       {/* Balance and payouts */}
-      <section className="absolute top-12 left-12 w-[380px] rounded-2xl bg-white p-6 shadow-[0_1px_2px_rgba(0,0,0,.05),0_20px_40px_-20px_rgba(0,0,0,.2)] ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
+      <section className="absolute top-12 left-12 w-[380px] rounded-2xl bg-white p-6 @max-[480px]:top-4 @max-[480px]:left-4 @max-[480px]:w-[328px] @max-[480px]:p-5 shadow-[0_1px_2px_rgba(0,0,0,.05),0_20px_40px_-20px_rgba(0,0,0,.2)] ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
         <div className="text-[13px] text-zinc-500">Available balance</div>
         <div className="mt-1 text-[34px] font-semibold tracking-tight tabular-nums">
           <span className="text-zinc-400">$</span>84,210.50
@@ -130,7 +130,7 @@ export default function PayoutFlow() {
             <div
               key={i}
               ref={i === 0 ? rowRef : undefined}
-              className={`grid h-12 grid-cols-[28px_1fr_auto_64px] items-center gap-3 border-t border-black/5 transition-[opacity,translate] duration-700 dark:border-white/10 ${EASE} ${
+              className={`grid h-12 grid-cols-[28px_1fr_auto_64px] items-center gap-3 ${i >= 1 ? "@max-[480px]:hidden" : ""} border-t border-black/5 transition-[opacity,translate] duration-700 dark:border-white/10 ${EASE} ${
                 rowsIn && !exiting ? "translate-y-0 opacity-100" : exiting ? "opacity-0" : "translate-y-2 opacity-0"
               }`}
               style={{
@@ -167,7 +167,7 @@ export default function PayoutFlow() {
       {/* Instant payout */}
       <section
         ref={cardRef}
-        className={`absolute top-12 left-[492px] w-[264px] rounded-2xl bg-white p-5 shadow-[0_1px_2px_rgba(0,0,0,.05),0_24px_48px_-16px_rgba(0,0,0,.28)] ring-1 ring-black/5 transition-[opacity,translate] dark:bg-zinc-800 dark:ring-white/10 ${EASE} ${
+        className={`absolute top-12 left-[492px] w-[264px] @max-[480px]:top-[196px] @max-[480px]:left-10 @max-[480px]:w-[280px] rounded-2xl bg-white p-5 shadow-[0_1px_2px_rgba(0,0,0,.05),0_24px_48px_-16px_rgba(0,0,0,.28)] ring-1 ring-black/5 transition-[opacity,translate] dark:bg-zinc-800 dark:ring-white/10 ${EASE} ${
           cardIn && !exiting ? "translate-x-0 opacity-100 duration-[900ms]" : exiting ? "opacity-0 duration-300" : "translate-x-6 opacity-0 duration-0"
         }`}
         style={{ transitionDelay: exiting ? "60ms" : "0ms" }}
@@ -211,7 +211,7 @@ export default function PayoutFlow() {
       </section>
 
       {line && (
-        <svg className="pointer-events-none absolute inset-0 h-full w-full overflow-visible" aria-hidden>
+        <svg className="pointer-events-none absolute inset-0 h-full w-full overflow-visible @max-[480px]:hidden" aria-hidden>
           <path
             d={`M ${line.x1} ${line.y} H ${line.x2}`}
             className="stroke-zinc-400 dark:stroke-zinc-500"
@@ -236,7 +236,7 @@ export default function PayoutFlow() {
       )}
 
       <p
-        className={`absolute top-[300px] left-[492px] text-[13px] text-zinc-500 transition-[opacity,translate] duration-700 ${EASE} ${
+        className={`absolute top-[300px] left-[492px] @max-[480px]:top-[446px] @max-[480px]:left-10 text-[13px] text-zinc-500 transition-[opacity,translate] duration-700 ${EASE} ${
           noteIn ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"
         }`}
       >

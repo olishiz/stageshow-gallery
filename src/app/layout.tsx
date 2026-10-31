@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { PwaProvider } from "@/components/site/pwa-provider";
 import { InstallPrompt } from "@/components/site/install-prompt";
 import { OfflineToast } from "@/components/site/offline-toast";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,8 +18,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL
-  ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:4317");
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -41,6 +40,12 @@ export const metadata: Metadata = {
       { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
     ],
     apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  alternates: { canonical: "./" },
+  openGraph: {
+    type: "website",
+    siteName: "Stageshow Gallery",
+    url: "./",
   },
   formatDetection: { telephone: false },
 };

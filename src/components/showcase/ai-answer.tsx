@@ -123,9 +123,9 @@ export default function AiAnswer() {
   return (
     <div
       ref={ref}
-      className="relative h-full w-full overflow-hidden bg-zinc-100 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100"
+      className="@container relative h-full w-full overflow-hidden bg-zinc-100 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100"
     >
-      <div className="absolute top-8 right-16 bottom-8 left-16 flex flex-col rounded-2xl bg-white shadow-[0_1px_2px_rgba(0,0,0,.06),0_24px_60px_-16px_rgba(0,0,0,.22)] ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
+      <div className="absolute top-8 right-16 bottom-8 left-16 flex flex-col @max-[480px]:inset-3 rounded-2xl bg-white shadow-[0_1px_2px_rgba(0,0,0,.06),0_24px_60px_-16px_rgba(0,0,0,.22)] ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
         <div className="flex h-12 flex-none items-center justify-between border-b border-black/5 px-5 dark:border-white/10">
           <div className="flex items-center gap-2 text-[14px] font-medium">
             <BookOpen className="size-4 text-zinc-500" aria-hidden />
@@ -141,7 +141,7 @@ export default function AiAnswer() {
           </span>
         </div>
 
-        <div className="relative flex-1 overflow-hidden px-8 pt-7">
+        <div className="relative flex-1 overflow-hidden px-8 pt-7 @max-[480px]:px-4 @max-[480px]:pt-5">
           <p
             className={`absolute inset-x-0 top-24 text-center text-[15px] text-zinc-400 transition-opacity duration-300 ${
               empty ? "opacity-100" : "opacity-0"
@@ -152,7 +152,7 @@ export default function AiAnswer() {
 
           <div className="flex justify-end">
             <div
-              className={`max-w-[75%] rounded-2xl rounded-br-md bg-zinc-900 px-4 py-2.5 text-[15px]/6 text-white transition-[opacity,translate] ease-[cubic-bezier(.25,.8,.25,1)] dark:bg-zinc-100 dark:text-zinc-900 ${
+              className={`max-w-[75%] @max-[480px]:max-w-[88%] rounded-2xl rounded-br-md bg-zinc-900 px-4 py-2.5 text-[15px]/6 text-white transition-[opacity,translate] ease-[cubic-bezier(.25,.8,.25,1)] dark:bg-zinc-100 dark:text-zinc-900 ${
                 hasQuestion && !exiting
                   ? "translate-y-0 opacity-100 duration-500"
                   : exiting
@@ -165,7 +165,7 @@ export default function AiAnswer() {
             </div>
           </div>
 
-          <div className="mt-6 max-w-[88%]">
+          <div className="mt-6 max-w-[88%] @max-[480px]:mt-5 @max-[480px]:max-w-none">
             <div
               className={`grid transition-[grid-template-rows,opacity] duration-300 ${
                 thinking ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
@@ -184,7 +184,7 @@ export default function AiAnswer() {
             >
               <AutoHeight>
                 {hasAnswer && (
-                  <p className="text-[16px]/7 text-zinc-700 dark:text-zinc-300">
+                  <p className="text-[16px]/7 text-zinc-700 @max-[480px]:text-[15px]/6 dark:text-zinc-300">
                     {WORDS.slice(0, words).map((w, i) => (
                       <span key={i} className="ai-word">
                         {w}{" "}
@@ -217,7 +217,7 @@ export default function AiAnswer() {
           </div>
         </div>
 
-        <div className="flex-none p-4 pt-0">
+        <div className="flex-none p-4 pt-0 @max-[480px]:p-3 @max-[480px]:pt-0">
           <div className="flex h-12 items-center gap-3 rounded-xl bg-zinc-50 pr-2 pl-4 ring-1 ring-black/10 dark:bg-zinc-800/70 dark:ring-white/10">
             <span className="flex-1 text-[15px] text-zinc-400">Ask a follow-up</span>
             <span className="grid size-8 place-items-center rounded-lg bg-zinc-200 text-zinc-500 dark:bg-zinc-700 dark:text-zinc-400">

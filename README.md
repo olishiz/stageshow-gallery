@@ -37,6 +37,8 @@ Test offline behavior against `npm run build && npm start`; the service worker o
 
 Each showcase lives in `src/components/showcase/<slug>.tsx` as one self-contained client component that depends only on React, Tailwind and `lucide-react`. The detail page shows that exact file as its code view. Metadata (title, category, design size, craft notes) lives in `src/lib/registry.ts`.
 
+On phones, nothing is shrunk into illegibility. Fixed-size components carry a second **compact design** (360 wide, declared as `compact` in the registry). The component restyles itself with `@max-[480px]:` container queries, and the preview stage switches to that size below 560px of slot width (detail pages) or 640px of viewport (gallery), so it renders near 1:1. Bento grids and heroes reflow at full width in the phone gallery, cropped with a fade at the foot. The stage rules live at the end of `src/app/globals.css`.
+
 Motion rules shared by every animated piece:
 
 - Loops open and close on their poster frame and only play while on screen.
@@ -51,9 +53,19 @@ Motion rules shared by every animated piece:
 - Navigations go network-first, then the precache, then `/offline`. RSC payloads are cached as they're fetched. When offline, unknown payloads fail so the router falls back to a full page load served from the precache.
 - `src/components/site/pwa-provider.tsx` registers the worker and captures `beforeinstallprompt`. The header Install button and the dismissible install card use it, and iOS Safari gets Add to Home Screen instructions instead.
 
-## Deploy
+## Deploy (Vercel, showcase.olishiz.com)
 
-Ready for Vercel with no configuration: the build command is `npm run build`, which also generates `public/sw.js`. Set `NEXT_PUBLIC_SITE_URL` if you use a custom domain, so metadata gets absolute URLs.
+`vercel.json` pins `npm ci` and `npm run build`, and that build command runs `scripts/build-sw.mjs` after `next build`. Vercel collects `public/` after the build command finishes, so the freshly generated `sw.js` ships with every deployment. This was verified with `vercel build`: `.vercel/output/static/sw.js` carries the same build id as the deployment, every precached `/_next/static` file exists in the output, and the `/sw.js` no-cache headers from `next.config.ts` are in the route config.
+
+Absolute URLs (canonical, Open Graph, `sitemap.xml`, `robots.txt`) come from `src/lib/site.ts`:
+
+- Production deployments use `https://showcase.olishiz.com`.
+- Preview deployments use their own `VERCEL_URL`.
+- `NEXT_PUBLIC_SITE_URL` overrides both.
+
+The service worker, manifest and links are origin-relative, so the app works the same on any host.
+
+To go live: import the repository as a Vercel project (framework: Next.js), then add `showcase.olishiz.com` under Project → Domains. The domain's DNS already has a CNAME to `cname.vercel-dns.com`.
 
 ## Credits
 

@@ -41,9 +41,9 @@ export default function PricingCard() {
   };
 
   return (
-    <div className="grid h-full w-full place-items-center bg-[linear-gradient(160deg,#f5f5f4,#e7e5e4)] p-4 text-stone-900 dark:bg-[linear-gradient(160deg,#1c1917,#0c0a09)] dark:text-stone-50">
+    <div className="@container grid h-full w-full place-items-center bg-[linear-gradient(160deg,#f5f5f4,#e7e5e4)] p-4 text-stone-900 dark:bg-[linear-gradient(160deg,#1c1917,#0c0a09)] dark:text-stone-50">
       <div className="w-full max-w-[480px] rounded-3xl bg-white px-6 py-5 shadow-[0_1px_2px_rgba(0,0,0,.05),0_24px_48px_-20px_rgba(0,0,0,.25)] ring-1 ring-black/5 dark:bg-stone-900 dark:ring-white/10">
-        <div className="flex items-start justify-between gap-4">
+        <div className="flex items-start justify-between gap-4 @max-[480px]:flex-col @max-[480px]:items-stretch @max-[480px]:gap-3">
           <div>
             <div className="text-[17px] font-semibold">Pro</div>
             <div className="text-[13px] text-stone-500 dark:text-stone-400">For people shipping every week</div>
@@ -108,7 +108,7 @@ export default function PricingCard() {
           </div>
         </div>
 
-        <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-black/5 pt-4 text-[13px] dark:border-white/10">
+        <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 @max-[480px]:grid-cols-1 border-t border-black/5 pt-4 text-[13px] dark:border-white/10">
           {FEATURES.map((f) => (
             <li key={f} className="flex items-center gap-2">
               <Check className="size-4 text-emerald-600 dark:text-emerald-400" aria-hidden />

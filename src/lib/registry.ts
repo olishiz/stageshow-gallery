@@ -17,6 +17,8 @@ export type ShowcaseMeta = {
   /** Design size in CSS pixels; previews scale this box to fit. */
   width: number;
   height: number;
+  /** The phone-width design (360 wide) fixed-size components switch to. */
+  compact?: { width: number; height: number };
   /** Reflows with its container instead of scaling on the detail page. */
   fluid?: boolean;
   interactive?: boolean;
@@ -85,6 +87,7 @@ export const SHOWCASES: ShowcaseMeta[] = [
     ],
     width: 800,
     height: 500,
+    compact: { width: 360, height: 540 },
     animated: true,
   },
   {
@@ -100,6 +103,7 @@ export const SHOWCASES: ShowcaseMeta[] = [
     ],
     width: 800,
     height: 500,
+    compact: { width: 360, height: 480 },
     animated: true,
   },
   {
@@ -115,6 +119,7 @@ export const SHOWCASES: ShowcaseMeta[] = [
     ],
     width: 800,
     height: 500,
+    compact: { width: 360, height: 470 },
     animated: true,
   },
   {
@@ -130,6 +135,7 @@ export const SHOWCASES: ShowcaseMeta[] = [
     ],
     width: 800,
     height: 500,
+    compact: { width: 360, height: 440 },
     animated: true,
   },
   {
@@ -145,6 +151,7 @@ export const SHOWCASES: ShowcaseMeta[] = [
     ],
     width: 560,
     height: 350,
+    compact: { width: 360, height: 450 },
     interactive: true,
   },
   {
@@ -160,6 +167,7 @@ export const SHOWCASES: ShowcaseMeta[] = [
     ],
     width: 560,
     height: 350,
+    compact: { width: 360, height: 380 },
     interactive: true,
   },
   {
@@ -175,6 +183,7 @@ export const SHOWCASES: ShowcaseMeta[] = [
     ],
     width: 560,
     height: 350,
+    compact: { width: 360, height: 300 },
     interactive: true,
   },
   {
@@ -222,6 +231,7 @@ export const SHOWCASES: ShowcaseMeta[] = [
     ],
     width: 560,
     height: 350,
+    compact: { width: 360, height: 260 },
     interactive: true,
   },
   {
@@ -237,6 +247,7 @@ export const SHOWCASES: ShowcaseMeta[] = [
     ],
     width: 560,
     height: 350,
+    compact: { width: 360, height: 260 },
     interactive: true,
   },
   {
@@ -252,6 +263,7 @@ export const SHOWCASES: ShowcaseMeta[] = [
     ],
     width: 560,
     height: 350,
+    compact: { width: 360, height: 300 },
     interactive: true,
   },
   {
@@ -267,6 +279,7 @@ export const SHOWCASES: ShowcaseMeta[] = [
     ],
     width: 560,
     height: 350,
+    compact: { width: 360, height: 290 },
     interactive: true,
   },
 ];

@@ -169,3 +169,60 @@
     scroll-behavior: auto;
   }
 }
+
+/*
+ * Preview stages (see components/gallery/stage.tsx). The canvas is drawn at its
+ * design size and scaled to the frame's width; `tan(atan2(a, b))` is a / b.
+ * Narrow slots swap in the compact design size instead of shrinking further.
+ */
+.ss-stage {
+  container: ss-stage / inline-size;
+  width: 100%;
+}
+.ss-stage__frame {
+  --sw: var(--stage-w);
+  --sh: var(--stage-h);
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: var(--sw) / var(--sh);
+}
+.ss-stage--capped .ss-stage__frame {
+  max-width: calc(var(--sw) * 1px);
+  margin-inline: auto;
+}
+.ss-stage__canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(var(--sw) * 1px);
+  height: calc(var(--sh) * 1px);
+  transform-origin: 0 0;
+  scale: tan(atan2(100cqw, calc(var(--sw) * 1px)));
+}
+.ss-stage--capped .ss-stage__canvas {
+  scale: min(1, tan(atan2(100cqw, calc(var(--sw) * 1px))));
+}
+@container ss-stage (width < 560px) {
+  .ss-stage--container .ss-stage__frame {
+    --sw: var(--stage-cw);
+    --sh: var(--stage-ch);
+  }
+}
+@media (width < 640px) {
+  .ss-stage--viewport .ss-stage__frame {
+    --sw: var(--stage-cw);
+    --sh: var(--stage-ch);
+  }
+  .ss-stage--viewport.ss-stage--reflow .ss-stage__frame {
+    aspect-ratio: auto;
+    height: 440px;
+    mask-image: linear-gradient(to bottom, #000 72%, transparent);
+  }
+  .ss-stage--viewport.ss-stage--reflow .ss-stage__canvas {
+    position: static;
+    width: 100%;
+    height: auto;
+    scale: none;
+  }
+}

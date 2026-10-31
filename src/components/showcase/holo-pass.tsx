@@ -69,7 +69,7 @@ export default function HoloPass() {
   const focus = () => aim({ x: 0.3, y: 0.25, active: 1 });
 
   return (
-    <div className="grid h-full w-full place-items-center bg-zinc-200 dark:bg-[#0b0b0f]" style={{ perspective: 900 }}>
+    <div className="@container grid h-full w-full place-items-center bg-zinc-200 dark:bg-[#0b0b0f]" style={{ perspective: 900 }}>
       <div
         ref={card}
         tabIndex={0}
@@ -79,7 +79,7 @@ export default function HoloPass() {
         onPointerLeave={rest}
         onFocus={focus}
         onBlur={rest}
-        className="holo-card relative aspect-[1.586] w-[360px] overflow-hidden rounded-[20px] bg-[linear-gradient(140deg,#fafafa,#e4e4e7)] text-zinc-900 ring-1 ring-black/10 outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:bg-[linear-gradient(140deg,#27272a,#09090b)] dark:text-zinc-50 dark:ring-white/10"
+        className="holo-card relative aspect-[1.586] w-[360px] @max-[480px]:w-[328px] overflow-hidden rounded-[20px] bg-[linear-gradient(140deg,#fafafa,#e4e4e7)] text-zinc-900 ring-1 ring-black/10 outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:bg-[linear-gradient(140deg,#27272a,#09090b)] dark:text-zinc-50 dark:ring-white/10"
       >
         <div className="holo-lines absolute inset-0 opacity-60 dark:opacity-40" aria-hidden />
         <div className="holo-sheen absolute inset-0" aria-hidden />

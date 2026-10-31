@@ -31,7 +31,7 @@ export default function HoldToConfirm() {
   const done = phase === "done";
 
   return (
-    <div className="grid h-full w-full place-items-center bg-zinc-100 p-6 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
+    <div className="@container grid h-full w-full place-items-center bg-zinc-100 p-6 @max-[480px]:p-4 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
       <div className="w-full max-w-[400px] rounded-3xl bg-white p-6 shadow-[0_1px_2px_rgba(0,0,0,.05),0_20px_40px_-20px_rgba(0,0,0,.2)] ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
         <div className="text-[16px] font-semibold">Delete “gallery-v1”</div>
         <p className="mt-1 text-[14px]/6 text-zinc-500 dark:text-zinc-400">

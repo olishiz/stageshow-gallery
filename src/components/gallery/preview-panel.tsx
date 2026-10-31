@@ -59,12 +59,13 @@ export function PreviewPanel({ meta }: { meta: ShowcaseMeta }) {
             <Component key={runs} />
           </FluidStage>
         ) : (
-          <div className="grid place-items-center bg-[radial-gradient(circle,var(--border)_1px,transparent_1px)] [background-size:16px_16px] p-3 sm:p-8">
+          <div className="bg-[radial-gradient(circle,var(--border)_1px,transparent_1px)] [background-size:16px_16px] p-2.5 sm:p-8">
             <ScaledStage
               width={meta.width}
               height={meta.height}
+              compact={meta.compact}
               capAtDesignSize
-              className="rounded-2xl shadow-[0_1px_2px_rgba(0,0,0,.06),0_20px_50px_-24px_rgba(0,0,0,.35)] ring-1 ring-black/5 dark:ring-white/10"
+              frameClassName="rounded-2xl shadow-[0_1px_2px_rgba(0,0,0,.06),0_20px_50px_-24px_rgba(0,0,0,.35)] ring-1 ring-black/5 dark:ring-white/10"
             >
               <Component key={runs} />
             </ScaledStage>

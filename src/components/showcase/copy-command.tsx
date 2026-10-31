@@ -23,14 +23,14 @@ export default function CopyCommand() {
   };
 
   return (
-    <div className="grid h-full w-full place-items-center bg-zinc-100 p-6 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
+    <div className="@container grid h-full w-full place-items-center bg-zinc-100 p-6 @max-[480px]:p-4 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
       <div className="w-full max-w-[500px]">
-        <div className="mb-3 flex items-baseline justify-between px-1">
+        <div className="mb-3 flex items-baseline justify-between px-1 @max-[480px]:flex-col @max-[480px]:gap-0.5">
           <span className="text-[15px] font-medium">Install the Stageshow skill</span>
           <span className="text-[13px] text-zinc-500">by Benji Taylor</span>
         </div>
         <div className="flex items-center gap-2 rounded-2xl bg-white p-2 pl-4 shadow-[0_1px_2px_rgba(0,0,0,.05),0_12px_32px_-16px_rgba(0,0,0,.2)] ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
-          <code className="min-w-0 flex-1 overflow-x-auto font-mono text-[13px] whitespace-nowrap [scrollbar-width:none]">
+          <code className="min-w-0 flex-1 overflow-x-auto font-mono text-[13px] whitespace-nowrap @max-[480px]:leading-5 @max-[480px]:whitespace-normal [scrollbar-width:none]">
             <span className="text-zinc-400 select-none">$ </span>
             {COMMAND}
           </code>
