@@ -78,8 +78,8 @@ export default async function ComponentPage({ params }: PageProps<"/components/[
           <h2 className="mt-8 text-sm font-semibold">Use it</h2>
           <p className="mt-3 text-sm text-muted-foreground">
             One self-contained client component. Needs React, Tailwind CSS v4 and{" "}
-            <code className="rounded bg-muted px-1 py-0.5 font-mono text-[12px]">lucide-react</code>. Dark styles use
-            Tailwind&rsquo;s <code className="rounded bg-muted px-1 py-0.5 font-mono text-[12px]">dark:</code> variant.
+            <code className="rounded bg-muted px-1 py-0.5 font-mono text-[12px] text-foreground">lucide-react</code>. Dark styles use
+            Tailwind&rsquo;s <code className="rounded bg-muted px-1 py-0.5 font-mono text-[12px] text-foreground">dark:</code> variant.
           </p>
         </aside>
         <CodeView slug={meta.slug} />

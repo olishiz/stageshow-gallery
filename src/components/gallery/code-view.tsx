@@ -9,7 +9,7 @@ export async function CodeView({ slug }: { slug: string }) {
   const code = await readFile(path.join(process.cwd(), "src/components/showcase", file), "utf8");
   const html = await codeToHtml(code, {
     lang: "tsx",
-    themes: { light: "github-light", dark: "github-dark" },
+    themes: { light: "github-light-default", dark: "github-dark-default" },
     defaultColor: false,
   });
   const lines = code.split("\n").length;

@@ -80,7 +80,7 @@ export const SHOWCASES: ShowcaseMeta[] = [
       "A question is sent, the assistant thinks, the answer streams in with its own height, and sources land last.",
     notes: [
       "No sparkles and no purple: the feature is shown by what it does.",
-      "The thread grows smoothly, carrying the composer instead of jumping.",
+      "The answer opens its own height as words arrive, so nothing jumps.",
       "Under reduced motion the finished answer is the still.",
     ],
     width: 800,
@@ -92,11 +92,11 @@ export const SHOWCASES: ShowcaseMeta[] = [
     title: "Instant payout",
     category: "animated",
     summary:
-      "A cursorless system story: the balance counts up, payouts stagger in, an instant payout sends and its row settles.",
+      "A cursorless system story: payouts stagger in, an instant payout card arrives, a line ties it to its row, and it sends.",
     notes: [
       "Overlapping arrivals on one soft curve; the payoff holds before the reset.",
       "The row that caused the payout changes from Pending to Paid, closing the loop.",
-      "Amounts use tabular figures so digits never wobble while they roll.",
+      "Amounts use tabular figures so the column of payouts lines up.",
     ],
     width: 800,
     height: 500,
@@ -126,7 +126,7 @@ export const SHOWCASES: ShowcaseMeta[] = [
     notes: [
       "Keyboard stories show their keys; no cursor is needed.",
       "The palette is pinned by its top edge, so filtering never makes it jump.",
-      "The selection highlight travels between rows instead of blinking.",
+      "Rows that stop matching collapse in place; the best match stays highlighted.",
     ],
     width: 800,
     height: 500,
@@ -232,7 +232,7 @@ export const SHOWCASES: ShowcaseMeta[] = [
       "A heart that pops with a ring of particles while the count rolls up a single digit.",
     notes: [
       "Only the icon overshoots; the count and surface settle without bounce.",
-      "The number rolls, last digit first, in a fixed slot.",
+      "Only the digit that changes rolls, inside a fixed slot.",
       "Reduced motion keeps the color change and drops the burst.",
     ],
     width: 560,
