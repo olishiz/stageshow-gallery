@@ -83,7 +83,7 @@ export function GalleryGrid() {
       </p>
 
       <ul className="mt-6 grid gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-        {items.map((s, i) => {
+        {items.map((s) => {
           const Component = SHOWCASE_COMPONENTS[s.slug];
           return (
             <li key={s.slug} className="group relative">
@@ -92,7 +92,7 @@ export function GalleryGrid() {
                 aria-hidden
                 className="overflow-hidden rounded-2xl border border-border/70 bg-muted shadow-[0_1px_2px_rgba(0,0,0,.04)] transition-[box-shadow,translate] duration-300 ease-out group-hover:-translate-y-0.5 group-hover:shadow-[0_18px_40px_-20px_rgba(0,0,0,.35)] motion-reduce:transition-none motion-reduce:group-hover:translate-y-0"
               >
-                <ScaledStage width={s.width} height={s.height} className={i > 5 ? "[content-visibility:auto]" : ""}>
+                <ScaledStage width={s.width} height={s.height}>
                   <Component />
                 </ScaledStage>
               </div>

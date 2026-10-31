@@ -160,7 +160,7 @@ export default function CommandMenu() {
             )}
           </span>
         </div>
-        <div className="relative p-2" style={{ height: COMMANDS.length * ROW_H + 16 }}>
+        <div className="relative p-2">
           <span
             className="absolute inset-x-2 top-2 rounded-lg bg-zinc-100 transition-transform duration-200 dark:bg-zinc-700/60"
             style={{ height: ROW_H }}

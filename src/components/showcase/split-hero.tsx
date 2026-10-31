@@ -60,10 +60,16 @@ const TILES = [
   { name: "AI answer", tone: "bg-zinc-100 dark:bg-zinc-800", bar: "bg-zinc-300 dark:bg-zinc-600" },
   { name: "Profile bento", tone: "bg-emerald-100 dark:bg-emerald-500/20", bar: "bg-emerald-300 dark:bg-emerald-400/50" },
   { name: "Pricing card", tone: "bg-stone-100 dark:bg-stone-800", bar: "bg-stone-300 dark:bg-stone-600" },
-  { name: "Ruled bento", tone: "bg-zinc-900 dark:bg-black", bar: "bg-zinc-600 dark:bg-zinc-700" },
+  { name: "Ruled bento", tone: "bg-zinc-900 dark:bg-black", bar: "bg-zinc-700 dark:bg-zinc-800" },
   { name: "Like burst", tone: "bg-rose-100 dark:bg-rose-500/20", bar: "bg-rose-300 dark:bg-rose-400/50" },
 ];
-const TILE_H = 132;
+const TILE_H = 290;
+// Mini layouts for the result thumbnails, as grid-area strings.
+const LAYOUTS = [
+  ["1 / 1 / 3 / 2", "1 / 2 / 2 / 3", "2 / 2 / 4 / 3", "3 / 1 / 4 / 2"],
+  ["1 / 1 / 2 / 3", "2 / 1 / 4 / 2", "2 / 2 / 3 / 3", "3 / 2 / 4 / 3"],
+  ["1 / 1 / 2 / 2", "1 / 2 / 3 / 3", "2 / 1 / 4 / 2", "3 / 2 / 4 / 3"],
+];
 const GAP = 14;
 
 // poster, select, cleared, typing
@@ -170,9 +176,10 @@ export default function SplitHero() {
                         height: TILE_H,
                       }}
                     >
-                      <div className={`flex h-[96px] flex-col justify-end gap-1.5 rounded-xl p-3 ${t.tone}`}>
-                        <span className={`h-1.5 w-3/5 rounded-full ${t.bar}`} />
-                        <span className={`h-1.5 w-2/5 rounded-full ${t.bar}`} />
+                      <div className={`grid h-[254px] grid-cols-2 grid-rows-3 gap-2 rounded-xl p-2.5 ${t.tone}`}>
+                        {LAYOUTS[TILES.indexOf(t) % LAYOUTS.length].map((area, j) => (
+                          <span key={j} className={`rounded-lg ${t.bar} ${j === 0 ? "" : "opacity-60"}`} style={{ gridArea: area }} />
+                        ))}
                       </div>
                       <div className="mt-2 text-[13px] font-medium">{t.name}</div>
                     </div>

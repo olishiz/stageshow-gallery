@@ -47,6 +47,10 @@ const PEOPLE = [
   { initials: "LW", bg: "bg-indigo-500" },
   { initials: "NP", bg: "bg-teal-500" },
   { initials: "HC", bg: "bg-orange-500" },
+  { initials: "DY", bg: "bg-cyan-600" },
+  { initials: "EB", bg: "bg-lime-600" },
+  { initials: "SV", bg: "bg-fuchsia-500" },
+  { initials: "AG", bg: "bg-zinc-700" },
 ];
 
 export default function LaunchBento() {
@@ -85,7 +89,7 @@ export default function LaunchBento() {
                 <span className="size-2.5 rounded-full bg-zinc-300 dark:bg-zinc-600" />
                 <span className="ml-3 h-5 w-48 rounded-md bg-zinc-200/70 dark:bg-zinc-700/60" />
               </div>
-              <div className="p-3">
+              <div className="p-3 pr-28">
                 <div className="grid grid-cols-[20px_1fr_auto] items-center gap-3 rounded-lg bg-white px-3 py-2.5 ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
                   <GitBranch className="size-4 text-zinc-500" aria-hidden />
                   <div className="min-w-0">
@@ -157,17 +161,26 @@ export default function LaunchBento() {
         </section>
 
         {/* Stat */}
-        <section className="flex flex-col justify-between rounded-3xl bg-white p-6 ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
+        <section className="flex flex-col rounded-3xl bg-white p-6 ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
           <p className="text-lg/snug font-semibold tracking-tight @2xl:text-xl/snug">
             Always on.{" "}
-            <span className="text-zinc-500 dark:text-zinc-400">
-              Measured across every region last quarter.
-            </span>
+            <span className="text-zinc-500 dark:text-zinc-400">Measured across every region.</span>
           </p>
-          <div className="mt-8">
-            <div className="text-sm text-zinc-500 dark:text-zinc-400">Uptime</div>
-            <div className="text-6xl font-semibold tracking-tighter whitespace-nowrap tabular-nums @2xl:text-[64px]">
-              99.99%
+          <div className="mt-5 text-6xl font-semibold tracking-tighter whitespace-nowrap tabular-nums @2xl:text-[64px]">
+            99.99%
+          </div>
+          <div className="mt-auto pt-6">
+            <div className="flex h-9 items-end gap-[3px]" aria-hidden>
+              {Array.from({ length: 30 }, (_, i) => (
+                <span
+                  key={i}
+                  className={`flex-1 rounded-[2px] ${i === 19 ? "h-1/2 bg-amber-400" : "h-full bg-emerald-500/80 dark:bg-emerald-500/70"}`}
+                />
+              ))}
+            </div>
+            <div className="mt-2 flex justify-between text-[12px] text-zinc-500">
+              <span>90 days ago</span>
+              <span>Today</span>
             </div>
           </div>
         </section>
@@ -177,6 +190,14 @@ export default function LaunchBento() {
           <p className="text-lg/snug font-semibold tracking-tight">
             Comments, in context.
           </p>
+          <div className="mt-5 flex items-start gap-2.5">
+            <span className="grid size-7 flex-none place-items-center rounded-full rounded-bl-none bg-amber-500 text-[11px] font-semibold text-white">
+              MA
+            </span>
+            <div className="rounded-2xl rounded-tl-md bg-zinc-100 px-3.5 py-2 text-[14px] text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
+              Can this gap match the cards?
+            </div>
+          </div>
           <div className="mt-auto flex items-center justify-between gap-4 rounded-2xl bg-zinc-50 p-4 pt-6 ring-1 ring-black/5 dark:bg-zinc-800/60 dark:ring-white/10">
             <div>
               <div className="text-[15px] font-medium">Preview comments</div>
@@ -217,15 +238,19 @@ export default function LaunchBento() {
             Reviewed together.{" "}
             <span className="text-zinc-500 dark:text-zinc-400">Seats are free.</span>
           </p>
-          <div className="mt-auto -mr-10 flex pt-6">
-            {PEOPLE.map((p, i) => (
-              <span
-                key={p.initials}
-                className={`${p.bg} -ml-3 grid size-14 flex-none place-items-center rounded-full text-[15px] font-semibold text-white ring-4 ring-white first:ml-0 dark:ring-zinc-900`}
-                style={{ zIndex: PEOPLE.length - i }}
-              >
-                {p.initials}
-              </span>
+          <div className="mt-auto -mr-12 space-y-2 pt-6">
+            {[PEOPLE.slice(0, 6), PEOPLE.slice(6)].map((row, r) => (
+              <div key={r} className="flex" style={{ marginLeft: r ? 28 : 0 }}>
+                {row.map((p, i) => (
+                  <span
+                    key={p.initials}
+                    className={`${p.bg} -ml-3 grid size-16 flex-none place-items-center rounded-full text-[16px] font-semibold text-white ring-4 ring-white first:ml-0 dark:ring-zinc-900`}
+                    style={{ zIndex: row.length - i }}
+                  >
+                    {p.initials}
+                  </span>
+                ))}
+              </div>
             ))}
           </div>
         </section>

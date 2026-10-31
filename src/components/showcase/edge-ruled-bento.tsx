@@ -69,14 +69,14 @@ export default function EdgeRuledBento() {
       ref={ref}
       className="@container h-full w-full bg-zinc-100 p-3 text-zinc-900 @2xl:p-6 dark:bg-black dark:text-zinc-100"
     >
-      <div className="grid h-full gap-px overflow-hidden rounded-2xl bg-zinc-300 ring-1 ring-zinc-300 @2xl:grid-cols-4 @2xl:grid-rows-2 dark:bg-zinc-800 dark:ring-zinc-800">
+      <div className="grid h-full gap-px overflow-hidden rounded-2xl bg-zinc-300 ring-1 ring-zinc-300 @2xl:grid-cols-4 @2xl:grid-rows-[1.1fr_1fr] dark:bg-zinc-800 dark:ring-zinc-800">
         {/* Hero: the terminal */}
-        <section className="flex min-h-[300px] flex-col bg-white p-6 @2xl:col-span-2 @2xl:row-span-2 dark:bg-zinc-950">
+        <section className="flex min-h-[300px] flex-col bg-white p-6 @2xl:col-span-2 @2xl:min-h-0 dark:bg-zinc-950">
           <p className="text-lg/snug font-semibold tracking-tight @2xl:text-xl/snug">
             Push, and it is everywhere.{" "}
             <span className="text-zinc-500">One command deploys to every region.</span>
           </p>
-          <div className="mt-6 flex-1 rounded-xl bg-zinc-50 p-5 font-mono text-[13px]/6 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">
+          <div className="mt-5 flex-1 rounded-xl bg-zinc-50 px-5 py-4 font-mono text-[13px]/6 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">
             <div className="text-zinc-500">
               <span className="text-zinc-400 dark:text-zinc-600">$ </span>
               <span className="text-zinc-900 dark:text-zinc-100">edge deploy --prod</span>
@@ -119,22 +119,21 @@ export default function EdgeRuledBento() {
 
         {/* Stat */}
         <section className="flex flex-col bg-white p-6 dark:bg-zinc-950">
-          <p className="text-[15px] text-zinc-500">Median response</p>
+          <p className="text-[15px] text-zinc-500">Median response, worldwide</p>
           <div className="mt-auto flex items-baseline gap-1 whitespace-nowrap">
-            <span className="text-6xl font-semibold tracking-tighter tabular-nums">14</span>
-            <span className="text-2xl font-medium text-zinc-500">ms</span>
+            <span className="text-[96px]/[0.9] font-semibold tracking-tighter tabular-nums">14</span>
+            <span className="text-3xl font-medium text-zinc-500">ms</span>
           </div>
-          <p className="mt-1 text-[15px] text-zinc-500">p50, worldwide</p>
         </section>
 
         {/* One component: keycaps */}
         <section className="flex flex-col bg-white p-6 dark:bg-zinc-950">
           <p className="text-[15px] text-zinc-500">Deploy from anywhere</p>
-          <div className="mt-auto flex gap-2">
+          <div className="mt-auto flex gap-2.5">
             {["⌘", "K"].map((k) => (
               <kbd
                 key={k}
-                className="grid h-14 min-w-14 place-items-center rounded-xl bg-gradient-to-b from-white to-zinc-100 px-3 font-sans text-2xl font-medium text-zinc-700 shadow-[inset_0_-2px_0_rgba(0,0,0,.08),0_1px_2px_rgba(0,0,0,.12)] ring-1 ring-zinc-300 dark:from-zinc-800 dark:to-zinc-900 dark:text-zinc-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,.08),0_1px_2px_rgba(0,0,0,.6)] dark:ring-zinc-700"
+                className="grid h-20 min-w-20 place-items-center rounded-2xl bg-gradient-to-b from-white to-zinc-100 px-4 font-sans text-3xl font-medium text-zinc-700 shadow-[inset_0_-3px_0_rgba(0,0,0,.08),0_1px_2px_rgba(0,0,0,.12)] ring-1 ring-zinc-300 dark:from-zinc-800 dark:to-zinc-900 dark:text-zinc-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,.08),0_1px_2px_rgba(0,0,0,.6)] dark:ring-zinc-700"
               >
                 {k}
               </kbd>
@@ -169,6 +168,15 @@ export default function EdgeRuledBento() {
               );
             })}
           </div>
+        </section>
+
+        {/* Statement */}
+        <section className="flex flex-col justify-between bg-white p-6 @2xl:col-span-2 dark:bg-zinc-950">
+          <span className="size-2 rounded-full bg-emerald-500 shadow-[0_0_0_4px_rgba(16,185,129,.18)]" aria-hidden />
+          <p className="mt-8 max-w-sm text-[30px]/[1.1] font-semibold tracking-tight">
+            No config files.{" "}
+            <span className="text-zinc-400 dark:text-zinc-500">The edge reads your framework.</span>
+          </p>
         </section>
       </div>
     </div>

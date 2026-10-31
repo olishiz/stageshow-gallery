@@ -11,7 +11,7 @@ const FEATURES = ["Unlimited projects", "Offline previews", "Custom domains", "P
 /** One digit that rolls vertically to its value. */
 function Digit({ value }: { value: number }) {
   return (
-    <span className="relative inline-block h-[1em] w-[0.62em] overflow-hidden leading-none">
+    <span className="relative inline-block h-[1em] w-[0.58em] overflow-hidden leading-none">
       <span
         className="absolute inset-x-0 top-0 flex flex-col transition-transform duration-500 ease-[cubic-bezier(.3,.75,.1,1)] motion-reduce:transition-none"
         style={{ transform: `translateY(${-value}em)` }}
@@ -41,8 +41,8 @@ export default function PricingCard() {
   };
 
   return (
-    <div className="grid h-full w-full place-items-center bg-[linear-gradient(160deg,#f5f5f4,#e7e5e4)] p-5 text-stone-900 dark:bg-[linear-gradient(160deg,#1c1917,#0c0a09)] dark:text-stone-50">
-      <div className="w-full max-w-[480px] rounded-3xl bg-white p-6 shadow-[0_1px_2px_rgba(0,0,0,.05),0_24px_48px_-20px_rgba(0,0,0,.25)] ring-1 ring-black/5 dark:bg-stone-900 dark:ring-white/10">
+    <div className="grid h-full w-full place-items-center bg-[linear-gradient(160deg,#f5f5f4,#e7e5e4)] p-4 text-stone-900 dark:bg-[linear-gradient(160deg,#1c1917,#0c0a09)] dark:text-stone-50">
+      <div className="w-full max-w-[480px] rounded-3xl bg-white px-6 py-5 shadow-[0_1px_2px_rgba(0,0,0,.05),0_24px_48px_-20px_rgba(0,0,0,.25)] ring-1 ring-black/5 dark:bg-stone-900 dark:ring-white/10">
         <div className="flex items-start justify-between gap-4">
           <div>
             <div className="text-[17px] font-semibold">Pro</div>
@@ -80,10 +80,10 @@ export default function PricingCard() {
           </div>
         </div>
 
-        <div className="mt-5 flex items-end gap-3">
+        <div className="mt-3 flex items-end gap-3">
           {/* The sign hangs outside the digits so the number reads as the anchor */}
-          <div className="relative pl-[0.45em] text-[52px] font-semibold tracking-tight tabular-nums">
-            <span className="absolute top-[0.12em] left-0 text-[0.45em] text-stone-400">$</span>
+          <div className="relative pl-[0.4em] text-[48px] font-semibold tracking-tight tabular-nums">
+            <span className="absolute top-[0.14em] left-0 text-[0.45em] text-stone-400">$</span>
             <span className="sr-only">${price}</span>
             <span aria-hidden className="inline-flex">
               <Digit value={Math.floor(price / 10)} />
@@ -119,7 +119,7 @@ export default function PricingCard() {
 
         <button
           type="button"
-          className="mt-5 h-11 w-full rounded-xl bg-stone-900 text-[14px] font-medium text-white transition-colors hover:bg-stone-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 active:bg-stone-950 dark:bg-white dark:text-stone-900 dark:hover:bg-stone-200"
+          className="mt-4 h-11 w-full rounded-xl bg-stone-900 text-[14px] font-medium text-white transition-colors hover:bg-stone-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 active:bg-stone-950 dark:bg-white dark:text-stone-900 dark:hover:bg-stone-200"
         >
           Start 14-day trial
         </button>

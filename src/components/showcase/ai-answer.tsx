@@ -8,7 +8,7 @@ import {
   useSyncExternalStore,
   type ReactNode,
 } from "react";
-import { ArrowUpRight, BookOpen, SquarePen } from "lucide-react";
+import { ArrowUp, ArrowUpRight, BookOpen, SquarePen } from "lucide-react";
 
 const REDUCED = "(prefers-reduced-motion: reduce)";
 
@@ -125,7 +125,7 @@ export default function AiAnswer() {
       ref={ref}
       className="relative h-full w-full overflow-hidden bg-zinc-100 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100"
     >
-      <div className="absolute top-10 right-16 -bottom-10 left-16 flex flex-col rounded-2xl bg-white shadow-[0_1px_2px_rgba(0,0,0,.06),0_24px_60px_-16px_rgba(0,0,0,.22)] ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
+      <div className="absolute top-8 right-16 bottom-8 left-16 flex flex-col rounded-2xl bg-white shadow-[0_1px_2px_rgba(0,0,0,.06),0_24px_60px_-16px_rgba(0,0,0,.22)] ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
         <div className="flex h-12 flex-none items-center justify-between border-b border-black/5 px-5 dark:border-white/10">
           <div className="flex items-center gap-2 text-[14px] font-medium">
             <BookOpen className="size-4 text-zinc-500" aria-hidden />
@@ -184,7 +184,7 @@ export default function AiAnswer() {
             >
               <AutoHeight>
                 {hasAnswer && (
-                  <p className="text-[15px]/7 text-zinc-700 dark:text-zinc-300">
+                  <p className="text-[16px]/7 text-zinc-700 dark:text-zinc-300">
                     {WORDS.slice(0, words).map((w, i) => (
                       <span key={i} className="ai-word">
                         {w}{" "}
@@ -214,6 +214,15 @@ export default function AiAnswer() {
                 </span>
               ))}
             </div>
+          </div>
+        </div>
+
+        <div className="flex-none p-4 pt-0">
+          <div className="flex h-12 items-center gap-3 rounded-xl bg-zinc-50 pr-2 pl-4 ring-1 ring-black/10 dark:bg-zinc-800/70 dark:ring-white/10">
+            <span className="flex-1 text-[15px] text-zinc-400">Ask a follow-up</span>
+            <span className="grid size-8 place-items-center rounded-lg bg-zinc-200 text-zinc-500 dark:bg-zinc-700 dark:text-zinc-400">
+              <ArrowUp className="size-4" aria-hidden />
+            </span>
           </div>
         </div>
       </div>

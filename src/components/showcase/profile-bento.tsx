@@ -38,7 +38,7 @@ function useSeenOnce<T extends Element>() {
   return [ref, seen] as const;
 }
 
-const WEEKS = 30;
+const WEEKS = 26;
 
 // Deterministic levels so server and client render the same grid.
 function level(week: number, day: number) {
@@ -59,8 +59,9 @@ const LEVELS = [
 
 const STACK = [
   ["TypeScript", "React", "Next.js", "Tailwind CSS"],
-  ["Figma", "Motion", "Vercel", "Node.js"],
-  ["CSS", "Accessibility", "PWA", "Design systems"],
+  ["Figma", "Motion", "Vercel", "Radix"],
+  ["Node.js", "CSS", "PWA", "Playwright"],
+  ["Accessibility", "Design systems", "Git"],
 ];
 
 export default function ProfileBento() {
@@ -115,6 +116,16 @@ export default function ProfileBento() {
             <p className="mt-1.5 text-[13px]/5 text-stone-500 dark:text-stone-400">
               Showcase UI you can browse offline.
             </p>
+            <div className="mt-4 flex items-center justify-between text-[12px] text-stone-500 dark:text-stone-400">
+              <span>Launch checklist</span>
+              <span className="tabular-nums">5 of 6</span>
+            </div>
+            <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-stone-200 dark:bg-stone-700">
+              <div
+                className="h-full rounded-full bg-emerald-500 transition-[width] delay-300 duration-1000 ease-[cubic-bezier(.25,.8,.25,1)]"
+                style={{ width: filled ? "83%" : "8%" }}
+              />
+            </div>
           </div>
         </section>
 
@@ -149,11 +160,11 @@ export default function ProfileBento() {
           <p className="text-lg/snug font-semibold tracking-tight">Usually reaching for</p>
           <div className="mt-auto -mr-16 space-y-2 pt-6">
             {STACK.map((row, r) => (
-              <div key={r} className="flex gap-2" style={{ marginLeft: r === 1 ? -28 : 0 }}>
+              <div key={r} className="flex gap-2" style={{ marginLeft: r % 2 ? 28 : 0 }}>
                 {row.map((t) => (
                   <span
                     key={t}
-                    className="h-9 flex-none rounded-full bg-stone-100 px-3.5 text-[14px]/9 font-medium whitespace-nowrap text-stone-700 ring-1 ring-black/5 dark:bg-stone-800 dark:text-stone-200 dark:ring-white/10"
+                    className="h-10 flex-none rounded-full bg-stone-100 px-4 text-[15px]/10 font-medium whitespace-nowrap text-stone-700 ring-1 ring-black/5 dark:bg-stone-800 dark:text-stone-200 dark:ring-white/10"
                   >
                     {t}
                   </span>
